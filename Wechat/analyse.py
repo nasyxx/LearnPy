@@ -14,7 +14,7 @@ friends = itchat.get_friends(update = True)
 def analyseSex(friends):
     sexs = list(map(lambda x: x["Sex"], friends[1:]))
     #print(sexs)
-    counts = list(map(lambda x: x[1], sorted(Counter(sexs).items(), keys = lambda x: x[0])))
+    counts = list(map(lambda x: x[1], sorted(Counter(sexs).items(), key = lambda x: x[0])))
     a = Counter(sexs).items()
     print(a)
     labels = ['Unknown', 'Male', 'Female']
