@@ -14,11 +14,11 @@ friends = itchat.get_friends(update = True)
 def analyseSex(friends):
     sexs = list(map(lambda x: x["Sex"], friends[1:]))
     #print(sexs)
-    counts = list(map(lambda x: x[1], Counter(sexs).items()))
+    counts = list(map(lambda x: x[1], sorted(Counter(sexs).items(), keys = lambda x: x[0])))
     a = Counter(sexs).items()
     print(a)
-    labels = ['Male', 'Female', 'Unknown']
-    colors = ['red', 'yellowgreen', 'lightskyblue']
+    labels = ['Unknown', 'Male', 'Female']
+    colors = ['lightskyblue', 'red', 'yellowgreen']
     plt.figure(figsize=(8,5), dpi = 80)
     plt.axes(aspect = 1)
     plt.pie(counts,
